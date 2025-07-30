@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marriage Biodata Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Marriage Biodata</h1>
+        <form id="biodataForm" onsubmit="return validateForm(event)">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" oninput="validateField(this)">
+                <span class="error" id="fullNameError">Please enter your full name</span>
+            </div>
+
+            <div class="form-group">
+                <label for="fatherName">Father's Name</label>
+                <input type="text" id="fatherName" name="fatherName" oninput="validateField(this)">
+                <span class="error" id="fatherNameError">Please enter your father's name</span>
+            </div>
+
+            <div class="form-group">
+                <label for="motherName">Mother's Name</label>
+                <input type="text" id="motherName" name="motherName" oninput="validateField(this)">
+                <span class="error" id="motherNameError">Please enter your mother's name</span>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" oninput="validateField(this)">
+                <span class="error" id="dobError">Please select your date of birth</span>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <div class="radio-group">
+                    <input type="radio" id="male" name="gender" value="male" onchange="validateField(this)">
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                    <input type="radio" id="other" name="gender" value="other">
+                    <label for="other">Other</label>
+                </div>
+                <span class="error" id="genderError">Please select your gender</span>
+            </div>
+
+            <div class="form-group">
+                <label for="nationality">Nationality</label>
+                <input type="text" id="nationality" name="nationality" oninput="validateField(this)">
+                <span class="error" id="nationalityError">Please enter your nationality</span>
+            </div>
+
+            <div class="form-group">
+                <label for="maritalStatus">Marital Status</label>
+                <select id="maritalStatus" name="maritalStatus" onchange="validateField(this)">
+                    <option value="">Select Status</option>
+                    <option value="never_married">Never Married</option>
+                    <option value="divorced">Divorced</option>
+                    <option value="widowed">Widowed</option>
+                </select>
+                <span class="error" id="maritalStatusError">Please select marital status</span>
+            </div>
+
+            <div class="form-group">
+                <label for="height">Height (in cm)</label>
+                <input type="text" id="height" name="height" oninput="validateField(this)">
+                <span class="error" id="heightError">Please enter a valid height (e.g., 165)</span>
+            </div>
+
+            <div class="form-group">
+                <label for="religion">Religion</label>
+                <input type="text" id="religion" name="religion" oninput="validateField(this)">
+                <span class="error" id="religionError">Please enter your religion</span>
+            </div>
+
+            <div class="form-group">
+                <label>Education</label>
+                <table id="educationTable">
+                    <thead>
+                        <tr>
+                            <th>Degree</th>
+                            <th>Institution</th>
+                            <th>Year</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="educationBody">
+                        <tr>
+                            <td><input type="text" name="degree" class="education-input" oninput="validateTable()"></td>
+                            <td><input type="text" name="institution" class="education-input" oninput="validateTable()"></td>
+                            <td><input type="text" name="year" class="education-input" oninput="validateTable()"></td>
+                            <td><button type="button" onclick="addEducationRow()">Add</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <span class="error" id="educationError">Please fill in at least one complete education entry</span>
+            </div>
+
+            <div class="form-group">
+                <label for="occupation">Occupation</label>
+                <input type="text" id="occupation" name="occupation" oninput="validateField(this)">
+                <span class="error" id="occupationError">Please enter your occupation</span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" oninput="validateField(this)">
+                <span class="error" id="emailError">Please enter a valid email</span>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" oninput="validateField(this)">
+                <span class="error" id="phoneError">Please enter a valid phone number (e.g., +1234567890)</span>
+            </div>
+
+            <div class="form-group">
+                <label>Hobbies</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="reading" name="hobbies" value="reading" onchange="validateField(this)">
+                    <label for="reading">Reading</label>
+                    <input type="checkbox" id="traveling" name="hobbies" value="traveling">
+                    <label for="traveling">Traveling</label>
+                    <input type="checkbox" id="cooking" name="hobbies" value="cooking">
+                    <label for="cooking">Cooking</label>
+                    <input type="checkbox" id="sports" name="hobbies" value="sports">
+                    <label for="sports">Sports</label>
+                </div>
+                <span class="error" id="hobbiesError">Please select at least one hobby</span>
+            </div>
+
+            <div class="form-group">
+                <label for="about">About Yourself</label>
+                <textarea id="about" name="about" rows="5" oninput="validateField(this)"></textarea>
+                <span class="error" id="aboutError">Please provide some information about yourself</span>
+            </div>
+
+            <button type="submit">Submit Biodata</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
